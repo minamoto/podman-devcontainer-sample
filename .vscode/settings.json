@@ -1,0 +1,11 @@
+{
+    "dev.containers.dockerPath": "podman",
+    "dev.containers.dockerComposePath": "podman compose",
+    "dev.containers.dockerCredentialHelper": false,
+    "dev.containers.mountWaylandSocket": false,
+    "remote.WSL.useShellEnvironment": false,  // ← WSL自動検出無効化 追加
+    "dev.containers.executeInWSL": false,
+    "terminal.integrated.useWslProfiles": false,
+    "dev.containers.forwardWSLServices": false,
+    "redhat.telemetry.enabled": false,
+}
