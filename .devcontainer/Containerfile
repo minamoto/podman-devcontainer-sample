@@ -1,22 +1,14 @@
 # ベースイメージにRed Hat UBI 10を指定
 FROM registry.access.redhat.com/ubi10/ubi:latest
 
-# OSの基本ツールのみをインストール（JavaとMavenは外す）
+# VS Code Dev Containerに必要な基本ツールと、Red Hat公式のOpenJDK 21・Mavenをインストール
 RUN dnf update -y && \
-    dnf install -y git sudo tar gzip unzip zip wget curl && \
+    dnf install -y java-21-openjdk-devel maven git sudo tar gzip unzip wget && \
     dnf clean all
 
-# Dev Container用の「vscode」ユーザーを作成し、パスワードなしでsudo可能にする
+# Dev Containerの標準である「vscode」ユーザーを作成し、パスワードなしでsudo可能にする
 RUN useradd -m -s /bin/bash vscode && \
     echo "vscode ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 
-# ユーザーを vscode に切り替え
+# デフォルトユーザーを指定
 USER vscode
-
-# SDKMAN! をインストールし、Java(Temurin 21)、Maven、Quarkus CLIを一括インストール
-# ※ バージョン "21.0.2-tem" は記述時のTemurin 21の例です。必要に応じて最新の21系に変更してください。
-RUN curl -s "https://get.sdkman.io" | bash && \
-    bash -c "source $HOME/.sdkman/bin/sdkman-init.sh && \
-             sdk install java 21.0.2-tem && \
-             sdk install maven && \
-             sdk install quarkus"
