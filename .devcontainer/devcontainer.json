@@ -32,5 +32,9 @@
     "remoteUser": "vscode",
     "containerUser": "vscode", // 追加
 
-    "runArgs": ["--security-opt", "label=disable"]
+    "runArgs": ["--security-opt", "label=disable"],
+
+    "mounts": [
+        "type=bind,source=/dev/null,target=/var/run/docker.sock"
+    ]
 }
