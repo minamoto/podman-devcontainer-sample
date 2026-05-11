@@ -35,7 +35,10 @@
         }
     },
 
-    "remoteUser": "vscode"
+    "remoteUser": "vscode",
+    "containerUser": "vscode", // 追加
+
+    "runArgs": ["--security-opt", "label=disable"]
     
     // "runArgs": [
     //     "--userns=keep-id"
