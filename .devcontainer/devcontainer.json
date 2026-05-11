@@ -2,7 +2,7 @@
     "name": "Quarkus UBI10 Dev Container",
     
     "build": {
-        "dockerfile": "Dockerfile"
+        "dockerfile": "Containerfile"
     },
 
     "forwardPorts": [8080, 5005],
