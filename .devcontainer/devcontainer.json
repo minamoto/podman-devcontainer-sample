@@ -20,11 +20,7 @@
                         "path": "/usr/lib/jvm/java-21-openjdk",
                         "default": true
                     }
-                ],
-                "remote.WSL.useShellEnvironment": false, 
-                "dev.containers.executeInWSL": false,
-                "terminal.integrated.useWslProfiles": false,
-                "dev.containers.forwardWSLServices": false
+                ]
             },
             "extensions": [
                 "redhat.java",
