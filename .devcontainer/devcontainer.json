@@ -2,15 +2,10 @@
     "name": "Quarkus UBI10 Dev Container",
     
     "build": {
-        "dockerfile": "Containerfile"
+        "dockerfile": "Dockerfile"
     },
 
     "forwardPorts": [8080, 5005],
-
-    // 【重要】VS Code本体と拡張機能にSDKMAN!のPATHを認識させる
-    "remoteEnv": {
-        "PATH": "/home/vscode/.sdkman/candidates/java/current/bin:/home/vscode/.sdkman/candidates/maven/current/bin:/home/vscode/.sdkman/candidates/quarkus/current/bin:${containerEnv:PATH}"
-    },
 
     "customizations": {
         "vscode": {
@@ -19,8 +14,7 @@
                 "java.configuration.runtimes": [
                     {
                         "name": "JavaSE-21",
-                        // JDKのパスをSDKMAN!のcurrent（現在有効なバージョン）に指定
-                        "path": "/home/vscode/.sdkman/candidates/java/current",
+                        "path": "/usr/lib/jvm/java-21-openjdk",
                         "default": true
                     }
                 ]
@@ -33,14 +27,10 @@
                 "redhat.vscode-quarkus"
             ]
         }
-    },
+    },  
 
     "remoteUser": "vscode",
     "containerUser": "vscode", // 追加
 
     "runArgs": ["--security-opt", "label=disable"]
-    
-    // "runArgs": [
-    //     "--userns=keep-id"
-    // ]
 }
