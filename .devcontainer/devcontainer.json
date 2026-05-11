@@ -5,10 +5,7 @@
         "dockerfile": "Containerfile"
     },
 
-    // 1. ボリュームのマウント設定（sourceに好きなボリューム名を指定）
     "workspaceMount": "source=quarkus-workspace-vol,target=/workspaces/quarkus-in-action,type=volume",
-    
-    // 2. VS Codeを開くデフォルトのディレクトリ（targetと同じパスを指定）
     "workspaceFolder": "/workspaces/quarkus-in-action",
 
     "forwardPorts": [8080, 5005],
@@ -36,11 +33,6 @@
     },  
 
     "remoteUser": "vscode",
-    "containerUser": "vscode", // 追加
+    "containerUser": "vscode"
 
-    "runArgs": ["--security-opt", "label=disable"],
-
-    "mounts": [
-        "type=bind,source=/dev/null,target=/var/run/docker.sock"
-    ]
 }
